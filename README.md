@@ -20,7 +20,7 @@
     </code>
 </p>
 
-I am the open-source contributor for the Google Summer of Code 2024 working on the AI Programmer project for Rocket.Chat. In this repository I will clarify a final report summary of my GSoC work and a quick guide for all future GSoC aspirants.
+I am the open-source contributor for the Google Summer of Code 2024 working on the AI Programmer project for Rocket.Chat. In this repository I will clarify a final report summary of my GSoC work and a quick guide for all future GSoC aspirants working on this project.
 
 Project Repository: https://github.com/RocketChat/Apps.RC.AI.Programmer
 
@@ -71,6 +71,7 @@ The friendly user interface implemented using RC app engine's ui-kit allows inte
 
 https://github.com/user-attachments/assets/eb169616-63c1-40c0-96e0-dadc4bc05e92
 
+
 ### LLM Configuration
 
 For the code generation tasks, we are supposed to invoke LLMs. In Rocket.Chat community, the LLM APIs are configured together in a safe.dev server provided by @devanshu.sharma . This enables the direct invoking of different LLMs via generic GPT-format LLM APIs. Thus, users can swiftly switch between different LLMs and choose the version that works smoothly with their requirements.
@@ -82,9 +83,18 @@ For the code generation tasks, we are supposed to invoke LLMs. In Rocket.Chat co
 
 To avoid avoid improper injections and ensure the app function as expected, we should make the prompts of LLMs to be more effective. This practice is done by conducting rigorous prompt engineering. A well-designed prompt can offer the users numerous benefits, including improved output accuracy, enhanced control over model responses, reduced hallucinations, better task alignment, and increased efficiency in utilizing the model's capabilities. Effective prompt engineering also helps mitigate potential security risks, ensures consistent performance across various inputs, and allows for more nuanced and context-aware interactions with the LLM.
 
-To achieve this, we used a method called "chain of thought", which asks an LLM to generate an effective prompt for a specific task itself, and human will intefere with it to audit the prompt result and ensure its effectiveness.
+To achieve this, we used a method called "chain of thought", which asks an LLM to generate an effective prompt for a specific task itself, and human will intefere with the prompts, adding missing information, auding their correctness and effectiveness.
 
 Our experiments show that the prompts we adopt in this ai-programmer is strong enough to sustain possible attacks or injection attempts from illegal users.
+
+### Code Generation and Refinement
+
+After configuring the correct LLM and corresponding LLMs, users can now ask the LLM to perform tasks specified by the prompt. For functions of Code Generation and Refinement, we set a different prompts respectively. When users ask for a code refinement, the app will automatically read the code result generated in last round and make improvements on it according to user's feedbacks.
+
+To integrate users' input information inside the prompt, we set a few examples for LLMs to learn from. In this manner, the LLM could better understand user's meaning and to avoid potential improper actions caused by injections. 
+
+![image](https://github.com/user-attachments/assets/0c90f163-542f-4505-bb68-9f1f83c2e4cd)
+
 
 ### 🔐 GitHub OAuth Connections
 
@@ -108,6 +118,13 @@ If the file doesn't exist, we'll create it.
 If it does exist, we'll update it with the new content.
 
 By detecting the response status code we can tell whether our API calls are successful. Finally this sharing code function has been implemented using RESTful APIs and accessing to Sha values of existing files.
+
+### Sharing Code to RC channel
+
+Since the code is generated within the channel, it is reasonable for users to share their code pieces within the current channel. We have enabled this function for users to share what they have generated. However, the users should be able to edit the content they are going to share and verify that's the correct information because the content will become public after sharing.
+
+![image](https://github.com/user-attachments/assets/70f88dc2-18e4-4b6a-a4eb-5bce03e25bd6)
+
 
 
 ## 🚀 Contributions
