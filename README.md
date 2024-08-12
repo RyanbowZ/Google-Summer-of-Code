@@ -26,7 +26,7 @@ Project Repository: https://github.com/RocketChat/Apps.RC.AI.Programmer
 
 ## ⭐ Project Abstract
 
-The AI Programmer Rocket.Chat App enables users to generate a short piece of code in C/C++, Java, Javascript, Typescript or Python based on their specification. They can switch between different LLMs (Mistral, CodeLlama, etc.) and ask for a new refinement on the code generation result to make augment or fine-tune. A well-designed interactive UX aiming to simplify user's interactions is also implemented. Finally, the app bridges the generated codes with sharing APIs, allowing users to share the code pieces in RC channel and their Github repositories. 
+The AI Programmer Rocket.Chat App enables users to generate a short piece of code in C/C++, Java, Javascript, Typescript or Python based on their specification. They can switch between different LLMs (Mistral, CodeLlama, etc.) and ask for a new refinement on the code generation result to make augment or fine-tune. A well-designed interactive UX aiming to simplify user's interactions is also implemented. Finally, the app bridges the generated codes with sharing APIs, allowing users to share the code pieces in RC channel and their Github gists/repositories. 
 
 
 ## 🚢 Deliverables
@@ -96,8 +96,9 @@ To integrate users' input information inside the prompt, we set a few examples f
 ![image](https://github.com/user-attachments/assets/0c90f163-542f-4505-bb68-9f1f83c2e4cd)
 
 
-### 🔐 GitHub OAuth Connections
+### 🔐 GitHub Connections
 
+#### OAuth Authentication Mechanism
 To enable users to share code into GitHub repositories, in this Ai Programmer App I have implemented the Authentication mechanism using OAuth2. To implement this feature, we have used the [GitHub OAuth](https://docs.github.com/en/developers/apps/building-oauth-apps/authorizing-oauth-apps) along with the [RocketChat Apps Oauth2 Client](https://developer.rocket.chat/apps-engine/adding-features/oauth2-client) for OAuth2 authentication. 
 
 When registering the OAuth application, the callback URL must be set to the server url of which this app is deployed on. (e.g. http://localhost:3000 for local servers). After the GitHub OAuth is successfully setup, open the settings page of Ai Programmer App and enter the correspnding GitHub App OAuth Client Id and Client Secret.
@@ -108,7 +109,7 @@ When registering the OAuth application, the callback URL must be set to the serv
   
 <img src="https://github.com/user-attachments/assets/7609f317-025c-4760-8685-9b590192bfbc" alt="OAuth Setting Example" width="70%"/>
 
-### Sharing Code to Github
+#### Uploading Code Files to Github Repository
 
 By configuring the Github OAuth connections, users can now authenticate and access their Github repositories. Now to upload code content into the Github repository, the Ai Programmer app interacts with Github APIs and uses http put methods to implement this function.
 
@@ -121,7 +122,7 @@ If it does exist, we'll update it with the new content.
 
 By detecting the response status code we can tell whether our API calls are successful. Finally this sharing code function has been implemented using RESTful APIs and accessing to Sha values of existing files.
 
-### Uploading via Gist API
+#### Uploading Code Pieces via Gist API
 
 Considering the real use case and for a more practical usage, we enable the code to be shared on Github Gist in the form of code pieces, which allows users to store their generated code contents in a separate place other than repository for a better file organization and managements. The code pieces will be uploaded to Github Gist platform which is enabled to be shared with other users in Github community or integrate with existing repositories.
 
@@ -129,7 +130,8 @@ Considering the real use case and for a more practical usage, we enable the code
 
 Since the code is generated within the channel, it is reasonable for users to share their code pieces within the current channel. We have enabled this function for users to share what they have generated. However, the users should be able to edit the content they are going to share and verify that's the correct information because the content will become public after sharing.
 
-![image](https://github.com/user-attachments/assets/70f88dc2-18e4-4b6a-a4eb-5bce03e25bd6)
+
+https://github.com/user-attachments/assets/705a29e6-ec68-43e4-a803-679ea20a6e11
 
 
 
