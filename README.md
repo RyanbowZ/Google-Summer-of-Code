@@ -195,9 +195,9 @@ A sincerely big thank to all of the Rocket.chat participant's help throughout GS
 
 ## 💬 Connect With Me    
 
-I am a self-motivated student pursuing Master’s degree of Computer Science at Texas A&M University in USA, with consolidated knowledge in both computer and finance fundamentals, and abundant hands-on experience in Full-Stack DevOps, Cloud, Data Analytics, Machine Learning (AIGC), Game Development, Vision, Graphics, and Finance. 
+I am a self-motivated student pursuing Master’s degree of Computer Science at Texas A&M University in USA, interested in Full-Stack DevOps, Cloud, Data Analytics, Machine Learning (AIGC), Game Development, Vision, Graphics, and Finance. 
 
-I am interested in Full Stack development and have been an open-source contributor at Rocket.Chat since March 2024.
+I have been an open-source contributor at Rocket.Chat since March 2024.
 
 Want to discuss about GSoC / Rocket.Chat / Open-source ? Let's connect!
 
