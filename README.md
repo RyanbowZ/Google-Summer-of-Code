@@ -26,7 +26,7 @@ Project Repository: https://github.com/RocketChat/Apps.RC.AI.Programmer
 
 ## ⭐ Project Abstract
 
-The AI Programmer Rocket.Chat App enables users to generate a short piece of code in C/C++, Java, Javascript, Typescript or Python based on their specification. They can switch between different LLMs (Mistral, CodeLlama, etc.) and ask for a new refinement on the code generation result to make augment or fine-tune. A well-designed interactive UX aiming to simplify user's interactions is also implemented. Finally, the app bridges the generated codes with sharing APIs, allowing users to share the code pieces in RC channel and their Github gists/repositories. 
+The AI Programmer Rocket.Chat App enables users to generate a short piece of code in C/C++, Java, Javascript, Typescript or Python based on their specification. They can switch between different LLMs (Mistral, CodeLlama, etc.) and ask for a new refinement on the code generation result to make augment or fine-tune. A well-designed interactive UX aiming to simplify user's interactions is also implemented. Finally, the app bridges gap between the generated codes and the community using sharing APIs, allowing users to share the code pieces in RC channel and their Github gists/repositories by configuring OAuth and Restful APIs. 
 
 
 ## 🚢 Deliverables
@@ -65,7 +65,7 @@ The Minimal Slash commands allow users to handle ai programmer functions using s
 
 For users who prefers UX interactions, the app also provides access by UX. The user interface will be invoked directly using command \`/ai-programmer\`, which will open a contexutal bar for users to set their configurations. After the configurations are set and ready, users can progress to other functions.
 
-The friendly user interface implemented using RC app engine's ui-kit allows interactive operations on all features and functions provided by the ai programmer. All manipulation opereations can be seen in the video:
+The friendly user interface implemented using RC app engine's ui-kit allows interactive operations on all features and functions provided by the ai programmer. All UX manipulation opereations can be seen in the video:
 
 
 
@@ -211,7 +211,7 @@ Want to discuss about GSoC / Rocket.Chat / Open-source ? Let's connect!
 
 <div align="center">
 
-| **Student** | Ryan Zhou (Yuanlong Zhou) |
+| **Student** | Ryan Zhou (@ryanbowz) |
 |:--------------------|:-------------------|
 | **Organization** | [Rocket.Chat](https://rocket.chat/) |
 | **Personal Page** | [ryanbowz's page](https://ryanbowz.github.io/) |
