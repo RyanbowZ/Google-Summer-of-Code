@@ -43,7 +43,7 @@ Extra Features which were suggested by mentors throughout the Google Summer of C
 - Share Code in RC Channel: The generated code is not only viewable by the users, but can also be shared into current RC channels for other users to check.
 - Compatible with New Version UI-Kit: Since the RC server and app engine's ui-kit update frequently, the entire user interface is well-designed and implemented with new version features and compatible with RC servers.   
 
-**It's glad to complete all of the above deliverables and meet expected goals in proposal within the GSoC period! 🎉**
+**It's glad to complete all of the above deliverables and meet expected goals within the GSoC period! 🎉**
 
 ## 📺 Demo
 
@@ -56,6 +56,11 @@ The Minimal Slash commands allow users to fetch repository details such as issue
 - `/github Username/RepositoryName issue` sends recent issues to the channel.
 - `/github Username/RepositoryName pulls` sends recent pull requests to the channel.
 - `/github Username/RepositoryName contributors`sends the list of repository contributors to the channel.
+
+### User Interface
+
+The friendly user interface implemented using RC app engine's ui-kit allows interactive operations on all features and functions provided by the ai programmer. All manipulation opereations can be seen in the video:
+
 
 
 
