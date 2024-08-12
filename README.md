@@ -38,7 +38,7 @@ The following were the deliverables of this project:
 - User Configuration: Users can specify their personalized configuration for code generation tasks, for example, use which programming language and LLM.
 - Code Generation: Allowing users to generate code pieces by providing their requirements and specifications.
 - Code Refinement: Users can further ask for a new variation of the code or augment/fine-tune the system for a more precise result.
-- Share Code to Github Repository: By configuring the OAuth2 connection with Github, users can upload their generated code pieces to the target Github repository, branch, file.
+- Share Code to Github Repository: By configuring the OAuth2 connection with Github, users can upload their generated code pieces to the target Github repository, branch, file. For a better user interaction and make the function more practical to use, we enable the uploading code pieces via Gist APIs.
 
 Extra Features which were suggested by mentors throughout the Google Summer of Code period:
 
@@ -58,8 +58,8 @@ The Minimal Slash commands allow users to handle ai programmer functions using s
 3. Switch to the LLM you want to use to generate code -> `/ai-programmer llm llama3-70b`
 4. List the available LLM options -> `/ai-programmer list`
 5. Use the interactive user interface to handle your operations -> `/ai-programmer ui`
-6. Login to Github (You should set OAuth2 settings first!) -> `/ai-programmer login`.
-7. Logout to Github -> `/ai-programmer logout`.
+6. Login to Github (You should set OAuth2 settings first!) -> `/ai-programmer gh_login`.
+7. Logout to Github -> `/ai-programmer gh_logout`.
 
 ### User Interface
 
@@ -118,6 +118,10 @@ If the file doesn't exist, we'll create it.
 If it does exist, we'll update it with the new content.
 
 By detecting the response status code we can tell whether our API calls are successful. Finally this sharing code function has been implemented using RESTful APIs and accessing to Sha values of existing files.
+
+### Uploading via Gist API
+
+Considering the real use case and for a more practical usage, we enable the code to be shared on Github Gist in the form of code pieces, which allows users to store their generated code contents in a separate place other than repository for a better file organization and managements. The code pieces will be uploaded to Github Gist platform which is enabled to be shared with other users in Github community or integrate with existing repositories.
 
 ### Sharing Code to RC channel
 
