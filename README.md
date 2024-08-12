@@ -124,7 +124,11 @@ By detecting the response status code we can tell whether our API calls are succ
 
 #### Uploading Code Pieces via Gist API
 
-Considering the real use case and for a more practical usage, we enable the code to be shared on Github Gist in the form of code pieces, which allows users to store their generated code contents in a separate place other than repository for a better file organization and managements. The code pieces will be uploaded to Github Gist platform which is enabled to be shared with other users in Github community or integrate with existing repositories.
+Considering the real use case and for a more practical usage, users might be more interested in sharing their code pieces to the Gist, where they can further manage their code pieces and share with other Github community participants. 
+
+Thus, we enable the function of sharing generated code content to Github Gist, which allows users to store their generated code contents in a separate place other than repository for a better file organization and managements. The code pieces will be uploaded to Github Gist platform which is enabled to be shared with other users in Github community or integrate with existing repositories.
+
+The method of invoking Gist APIs is similar to Github APIs, which also requires OAuth configurations. Meanwhile, we should also add the scope of 'gist' when acquiring authentication access tokens from OAuth to ensure the correct connection with Gist resources.
 
 ### Sharing Code to RC channel
 
@@ -178,7 +182,7 @@ https://github.com/user-attachments/assets/705a29e6-ec68-43e4-a803-679ea20a6e11
 
 ## Documentation 
 
-I have documented all of the features mentioned above in the [Project README](https://github.com/RocketChat/Apps.RC.AI.Programmer). This documentation can prove useful to all future Rocket.Chat contributors working on Rocket.Chat Apps, Apps-engine, LLM, Github API, OAuth authentication, and the ui-kit. 
+I have documented all of the features mentioned above in the [Project README](https://github.com/RocketChat/Apps.RC.AI.Programmer/blob/main/README.md). This documentation is proven to be useful to all future Rocket.Chat contributors working on Rocket.Chat Apps, Apps-engine, LLM, Github API, OAuth authentication, and the ui-kit and progress further on the basis of this existing implementation version. 
 
     
 
@@ -207,7 +211,7 @@ I am a self-motivated student pursuing Master’s degree of Computer Science at 
 
 I have been an open-source contributor at Rocket.Chat since March 2024.
 
-Want to discuss about GSoC / Rocket.Chat / Open-source ? Let's connect!
+Want to discuss about GSoC / Rocket.Chat / Development ? Let's connect!
 
 <div align="center">
 
