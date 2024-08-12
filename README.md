@@ -31,21 +31,17 @@ The AI Programmer Rocket.Chat App enables users to generate a short piece of cod
 
 The following were the deliverables of this project:
 
-- Minimal  Slash Command Interface : Adding slash command to trigger the application to fetch details and data of any GitHub repository.
-- Event Subscriptions : Allow users to subscribe to single/multiple events of a repository using GitHub Webhooks and get notified of changes to a repository.
-- Extensive Queries : Enable Querying of issues/pull request/repository based on labels, author etc. 
-- New Issues : Ability to raise issues in a repository right from Rocket.Chat using an interactive modal interface.
-- Issue-Assignees : Ability to make an Issue-Assignee list for a repository in a channel to assign and track issues allotted to team members.
-- Code Changes : Enable users to view the code changes done by a pull request using a built-in code editor and merge the pull request.
-- Build Interactive UI : Unlock the true potential of the UiKit and add an interactive user interface for each of the added features of the application, eliminating the need to type long slash commands for more complex tasks.
+- Interactive User Interface : Unlock the true potential of the UiKit and add an interactive user interface for each of the added features of the application, eliminating the need to type long slash commands for more complex tasks.
+- Minimal Slash Command Interface : Adding slash command to trigger the application to manipulate on the AI programmer's functions with minimal interactions.
+- User Configuration: Users can specify their personalized configuration for code generation tasks, for example, use which programming language and LLM.
+- Code Generation: Allowing users to generate code pieces by providing their requirements and specifications.
+- Code Refinement: Users can further ask for a new variation of the code or augment/fine-tune the system for a more precise result.
+- Share Code to Github Repository: By configuring the OAuth2 connection with Github, users can upload their generated code pieces to the target Github repository, branch, file.
 
 Extra Features which were suggested by mentors throughout the Google Summer of Code period:
 
-- Adding Scalable Authentication Mechanism : Deleting the OAuth tokens from the Apps Local Storage after a period of time using [Scheduler API](https://developer.rocket.chat/apps-engine/adding-features/scheduler-api).
-- GitHub Search and Share : 
-  - Extensive Queries feature was extended to GitHub Search, where users could search issues and pull requests on GitHub by adding multiple filters inside an interactive modal.
-  - Multiple Search Results can be shared in the channel along with a personalized message.
-- Issue Templates : The New Issues feature was extened to fetch repository issue templates from GitHub, any of which could be selected to open a new issue from Rocket.Chat. 
+- Share Code in RC Channel: The generated code is not only viewable by the users, but can also be shared into current RC channels for other users to check.
+- Compatible with New Version UI-Kit: Since the RC server and app engine's ui-kit update frequently, the entire user interface is well-designed and implemented with new version features and compatible with RC servers.   
 
 **All of the above deliverables were completed within the GSoC period. Yay! 🎉**
 
@@ -137,15 +133,14 @@ https://user-images.githubusercontent.com/70485812/189453201-a886b5b5-84d9-4621-
 
 | PR Link   | Description  | Status | 
 | :-----------: | :------------------------------------:| :------:|
-| [PR #1](https://github.com/RocketChat/Apps.Github22/pull/1) | <b> [New] GitHub App Setup.</b> <br><br> <div align="left"> Highlights include:<ul><li>Slash Commands and interactive message to fetch repository data.</li><li>Fetching Pull Request Code Changes.</li><div> | <img src="https://i.imgur.com/tskv8MM.png" width=50 height=40> |
-| [PR #7](https://github.com/RocketChat/Apps.Github22/pull/7) | <b>[New] Oath2 With RC Apps Scheduler and WebHooks Integration.</b> <br><br> <div align="left"> Highlights include:<ul><li>New OAuth2 Mechanism for GitHub Login</li><li>Using RC App Scheduler to Logout User after a period of time.</li><li>Added Repository subscription to all events ( isses, pull_request, push, deployment_status, star) using /github USERNAME/REPONAME subscribe.</li><div> | <img src="https://i.imgur.com/tskv8MM.png" width=50 height=40> |
-| [PR #8](https://github.com/RocketChat/Apps.Github22/pull/8) | <b> [Feature] New Pull Request, Bug and Feature Request Templates. </b> | <img src="https://i.imgur.com/tskv8MM.png" width=50 height=40> |
-| [PR #11](https://github.com/RocketChat/Apps.Github22/pull/11) | <b> [Feature] Create GitHub Issues from Rocket.Chat channels </b>.<br><br> <div align="left"> Highlights include:<ul><li>Enabled users to select issue templates.</li><li>Adding labels, assignees etc while creating the issue.</li><div> | <img src="https://i.imgur.com/tskv8MM.png" width=50 height=40> |
-| [PR #15](https://github.com/RocketChat/Apps.Github22/pull/15) | <b>[Feature] GitHub Search. </b><br><br> <div align="left"> Highlights include:<ul><li>Searching GitHub issues and pull requests using different filters such as author, labels, state etc.</li><li>Clubbing and Sharing multiple search results at once along with a custom message.</li><div> | <img src="https://i.imgur.com/tskv8MM.png" width=50 height=40> |
-| [PR #16](https://github.com/RocketChat/Apps.Github22/pull/16) | <b>Improve User Experience - Update README. </b> <div align="left">| <img src="https://i.imgur.com/tskv8MM.png" width=50 height=40> |
-| [PR #18](https://github.com/RocketChat/Apps.Github22/pull/18) |[Feature] Merge PR and Comment on PRs. <br><br> <div align="left"> Highlights include:<ul><li>Merging Pull Request from Rocket.Chat along with custom commit message.</li><li> View Pull Request Comments and add New Comments to a Pull Request.</li><div> | <img src="https://i.imgur.com/tskv8MM.png" width=50 height=40> |
-| [PR #20](https://github.com/RocketChat/Apps.Github22/pull/20) | [Feature] Assign Issues from RocketChat  <br><br> <div align="left"> Highlights include:<ul><li>Fetching repository issues and update issue assignees inside from Rocket.Chat</li><li>Sharing multiple issues at once.</li><div> | <img src="https://user-images.githubusercontent.com/70485812/189489748-ed27630f-36e7-4eb9-a9a4-e082d6894490.png" width=50 height=40> |
-| [PR #766](https://github.com/RocketChat/fuselage/pull/766) | (fuselage) [New] MediumMultilineInput and LargeMultilineInput Elements <br><br> <div align="left"> Highlights include:<ul><li>Added Adding a new `MediumMultilineInput` Component and a `LargeMultilineInput Component` to fuselage to support `code review` and `new issues` feature</li><div> | <img src="https://user-images.githubusercontent.com/70485812/189489748-ed27630f-36e7-4eb9-a9a4-e082d6894490.png" width=50 height=40> |
+| [PR #1](https://github.com/RocketChat/Apps.RC.AI.Programmer/pull/1) | <b> [New] Setup development environment and make prototype demo.</b> <br><br> <div align="left"> Highlights include:<ul><li>Configured proper Rocket.chat app engine's development environment.</li><li>Enable users to automatically generate code pieces using the OpenAI GPT3.5 Turbo APIs.</li><div> | <img src="https://i.imgur.com/tskv8MM.png" width=50 height=40> |
+| [PR #2](https://github.com/RocketChat/Apps.RC.AI.Programmer/pull/2) | <b>[Refactor] Refactor the entire app on new framework supporting open-source LLMs.</b> <br><br> <div align="left"> Highlights include:<ul><li> Rebased the code on an improved framework, which supports generic GPT-format LLM APIs.</li><li>Organize the entire code base to remove unnecessary files from commits.</li><li>Adopted the functionality of the open-source mistral-7b APIs on code generation tasks</li><div> | <img src="https://i.imgur.com/tskv8MM.png" width=50 height=40> |
+| [PR #14](https://github.com/RocketChat/Apps.RC.AI.Programmer/pull/14) | <b>[Feature] Interactive UX to allow users to specify their configuration.</b> <br><br> <div align="left"> Highlights include:<ul><li> Users can make their configurations, switch between different LLMs, select their expected coding language.</li><li>Implemented the user interface for users to directly operate functions on.</li><li>Clarified the scope of available LLMs and add into options for users to choose from.</li><div> | <img src="https://i.imgur.com/tskv8MM.png" width=50 height=40> |
+| [PR #20](https://github.com/RocketChat/Apps.RC.AI.Programmer/pull/20) | <b>[Feature]  Code Refinement & UX Enhancements</b> <br><br> <div align="left"> Highlights include:<ul><li> Users can type in their code refinement requirements and ask for a new code variantion.</li><li>Redesigned the contextual bar and modal windows for a better UX.</li><div> | <img src="https://i.imgur.com/tskv8MM.png" width=50 height=40> |
+| [PR #28](https://github.com/RocketChat/Apps.RC.AI.Programmer/pull/28) | <b>[Feature]  Modal Window Design,  Prompt Engineering</b> <br><br> <div align="left"> Highlights include:<ul><li> Modal windows are enabled for UX stack and resolve contextual bar issues within app engine.</li><li>Prompt engineering tasks to make the prompts more effective and avoid injections.</li><div> | <img src="https://i.imgur.com/tskv8MM.png" width=50 height=40> |
+
+| [PR #37](https://github.com/RocketChat/Apps.RC.AI.Programmer/pull/37) | [Feature] Code Sharing in RC Channel and Github via OAuth2  <br><br> <div align="left"> Highlights include:<ul><li>Setup OAuth2 mechanism for GitHub authentication.</li><li>The generated code pieces can be shared directly into RC channel.</li><li>The generated code pieces can be shared to Github repository</li><li>Redesign the entire UX to compatible with the new version of RC server.</li><div> | <img src="https://user-images.githubusercontent.com/70485812/189489748-ed27630f-36e7-4eb9-a9a4-e082d6894490.png" width=50 height=40> |
+
 
 </div>
 
@@ -155,12 +150,16 @@ https://user-images.githubusercontent.com/70485812/189453201-a886b5b5-84d9-4621-
     
 | Issue Link   | Description  | Status | 
 | :-----------: | :------------------------------------:| :------:|
-| [ISSUE #10](https://github.com/RocketChat/Apps.Github22/issues/10) | [Feature] Create New GitHub Issues from Rocket.Chat  | <img src="https://i.imgur.com/ihaDyZS.png" width=50 height=40> |
-| [ISSUE #7](https://github.com/RocketChat/rocket.chat.app-poll/issues/12) | [Feature] GitHub Search integration enabling users to search for Issues and Pull Request | <img src="https://i.imgur.com/ihaDyZS.png" width=50 height=40> |
-| [ISSUE #3](https://github.com/RocketChat/rocket.chat.app-poll/issues/14) |[Feature] Improve User Experience| <img src="https://i.imgur.com/ihaDyZS.png" width=50 height=40> |
-| [ISSUE #10](https://github.com/RocketChat/rocket.chat.app-poll/issues/13) | [Feature] Issue Assignee Feature | <img src="https://user-images.githubusercontent.com/70485812/189489748-ed27630f-36e7-4eb9-a9a4-e082d6894490.png" width=50 height=40> |
-| [ISSUE #12](https://github.com/RocketChat/rocket.chat.app-poll/issues/17) | Pull Request Review : Merge And Comment on Pull Requests | <img src="https://user-images.githubusercontent.com/70485812/189489748-ed27630f-36e7-4eb9-a9a4-e082d6894490.png" width=50 height=40>
-| [ISSUE #765](https://github.com/RocketChat/fuselage/issues/765) | (fuselage) Larger Multiline Input Elements | <img src="https://user-images.githubusercontent.com/70485812/189489748-ed27630f-36e7-4eb9-a9a4-e082d6894490.png" width=50 height=40>
+| [ISSUE #5](https://github.com/RocketChat/Apps.RC.AI.Programmer/issues/5) | [Refactor] Refactor the entire code base to support generic GPT-format LLM APIs | <img src="https://i.imgur.com/ihaDyZS.png" width=50 height=40> |
+| [ISSUE #10](https://github.com/RocketChat/Apps.RC.AI.Programmer/issues/10) | [Feature] Add dropdown box on user interface for intuitive user configuration function | <img src="https://i.imgur.com/ihaDyZS.png" width=50 height=40> |
+| [ISSUE #15](https://github.com/RocketChat/Apps.RC.AI.Programmer/issues/15) |[Feature] Support the use case of asking for code refinement| <img src="https://i.imgur.com/ihaDyZS.png" width=50 height=40> |
+| [ISSUE #21](https://github.com/RocketChat/Apps.RC.AI.Programmer/issues/21) |[Feature] Design effective LLM prompts to avoid prompt injections| <img src="https://i.imgur.com/ihaDyZS.png" width=50 height=40> |
+| [ISSUE #23](https://github.com/RocketChat/Apps.RC.AI.Programmer/issues/23) |[BUG] The elements on contextual bar will invoke incorrect roomid| <img src="https://i.imgur.com/ihaDyZS.png" width=50 height=40> |
+| [ISSUE #29](https://github.com/RocketChat/Apps.RC.AI.Programmer/issues/29) |[Feature] Allow users to share code to Github repository| <img src="https://i.imgur.com/ihaDyZS.png" width=50 height=40> |
+| [ISSUE #34](https://github.com/RocketChat/Apps.RC.AI.Programmer/issues/34) |[Feature] Configure OAuth2 features for authentication for Github connection| <img src="https://i.imgur.com/ihaDyZS.png" width=50 height=40> |
+
+| [ISSUE #38](https://github.com/RocketChat/Apps.RC.AI.Programmer/issues/38) | [Feature] Design option to go back and choose another language | <img src="https://user-images.githubusercontent.com/70485812/189489748-ed27630f-36e7-4eb9-a9a4-e082d6894490.png" width=50 height=40> |
+
 
 </div>
 
