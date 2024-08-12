@@ -43,7 +43,7 @@ Extra Features which were suggested by mentors throughout the Google Summer of C
 - Share Code in RC Channel: The generated code is not only viewable by the users, but can also be shared into current RC channels for other users to check.
 - Compatible with New Version UI-Kit: Since the RC server and app engine's ui-kit update frequently, the entire user interface is well-designed and implemented with new version features and compatible with RC servers.   
 
-**All of the above deliverables were completed within the GSoC period. Yay! 🎉**
+**It's glad to complete all of the above deliverables and meet expected goals in proposal within the GSoC period! 🎉**
 
 ## 📺 Demo
 
@@ -138,7 +138,6 @@ https://user-images.githubusercontent.com/70485812/189453201-a886b5b5-84d9-4621-
 | [PR #14](https://github.com/RocketChat/Apps.RC.AI.Programmer/pull/14) | <b>[Feature] Interactive UX to allow users to specify their configuration.</b> <br><br> <div align="left"> Highlights include:<ul><li> Users can make their configurations, switch between different LLMs, select their expected coding language.</li><li>Implemented the user interface for users to directly operate functions on.</li><li>Clarified the scope of available LLMs and add into options for users to choose from.</li><div> | <img src="https://i.imgur.com/tskv8MM.png" width=50 height=40> |
 | [PR #20](https://github.com/RocketChat/Apps.RC.AI.Programmer/pull/20) | <b>[Feature]  Code Refinement & UX Enhancements</b> <br><br> <div align="left"> Highlights include:<ul><li> Users can type in their code refinement requirements and ask for a new code variantion.</li><li>Redesigned the contextual bar and modal windows for a better UX.</li><div> | <img src="https://i.imgur.com/tskv8MM.png" width=50 height=40> |
 | [PR #28](https://github.com/RocketChat/Apps.RC.AI.Programmer/pull/28) | <b>[Feature]  Modal Window Design,  Prompt Engineering</b> <br><br> <div align="left"> Highlights include:<ul><li> Modal windows are enabled for UX stack and resolve contextual bar issues within app engine.</li><li>Prompt engineering tasks to make the prompts more effective and avoid injections.</li><div> | <img src="https://i.imgur.com/tskv8MM.png" width=50 height=40> |
-
 | [PR #37](https://github.com/RocketChat/Apps.RC.AI.Programmer/pull/37) | [Feature] Code Sharing in RC Channel and Github via OAuth2  <br><br> <div align="left"> Highlights include:<ul><li>Setup OAuth2 mechanism for GitHub authentication.</li><li>The generated code pieces can be shared directly into RC channel.</li><li>The generated code pieces can be shared to Github repository</li><li>Redesign the entire UX to compatible with the new version of RC server.</li><div> | <img src="https://user-images.githubusercontent.com/70485812/189489748-ed27630f-36e7-4eb9-a9a4-e082d6894490.png" width=50 height=40> |
 
 
@@ -157,7 +156,6 @@ https://user-images.githubusercontent.com/70485812/189453201-a886b5b5-84d9-4621-
 | [ISSUE #23](https://github.com/RocketChat/Apps.RC.AI.Programmer/issues/23) |[BUG] The elements on contextual bar will invoke incorrect roomid| <img src="https://i.imgur.com/ihaDyZS.png" width=50 height=40> |
 | [ISSUE #29](https://github.com/RocketChat/Apps.RC.AI.Programmer/issues/29) |[Feature] Allow users to share code to Github repository| <img src="https://i.imgur.com/ihaDyZS.png" width=50 height=40> |
 | [ISSUE #34](https://github.com/RocketChat/Apps.RC.AI.Programmer/issues/34) |[Feature] Configure OAuth2 features for authentication for Github connection| <img src="https://i.imgur.com/ihaDyZS.png" width=50 height=40> |
-
 | [ISSUE #38](https://github.com/RocketChat/Apps.RC.AI.Programmer/issues/38) | [Feature] Design option to go back and choose another language | <img src="https://user-images.githubusercontent.com/70485812/189489748-ed27630f-36e7-4eb9-a9a4-e082d6894490.png" width=50 height=40> |
 
 
