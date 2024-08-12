@@ -73,6 +73,9 @@ https://github.com/user-attachments/assets/eb169616-63c1-40c0-96e0-dadc4bc05e92
 
 For the code generation tasks, we are supposed to invoke LLMs. In Rocket.Chat community, the LLM APIs are configured together in a safe.dev server provided by @devanshu.sharma . This enables the direct invoking of different LLMs via generic GPT-format LLM APIs. Thus, users can swiftly switch between different LLMs and choose the version that works smoothly with their requirements.
 
+![image](https://github.com/user-attachments/assets/42630d11-4567-4a05-82df-a434a93667aa)
+
+
 ### Prompt Engineering
 
 To avoid avoid improper injections and ensure the app function as expected, we should make the prompts of LLMs to be more effective. This practice is done by conducting rigorous prompt engineering. A well-designed prompt can offer the users numerous benefits, including improved output accuracy, enhanced control over model responses, reduced hallucinations, better task alignment, and increased efficiency in utilizing the model's capabilities. Effective prompt engineering also helps mitigate potential security risks, ensures consistent performance across various inputs, and allows for more nuanced and context-aware interactions with the LLM.
@@ -91,8 +94,18 @@ When registering the OAuth application, the callback URL must be set to the serv
 - As soon as the user is logged in, they receive a message notifying the successful connection with Github. User can now upload their generated code to their github repositories. 
 - The users are automatically logged out after a period of time and the token is deleted. This was done to ensure the scalability of the feature in case of inactive users and to remove old OAuth tokens from the apps limited persistent storage. To achieve this we use the [RocketChat Apps Scheduler API](https://developer.rocket.chat/apps-engine/adding-features/scheduler-api).
 
+### Sharing Code to Github
 
+By configuring the Github OAuth connections, users can now authenticate and access their Github repositories. Now to upload code content into the Github repository, the Ai Programmer app interacts with Github APIs and uses http put methods to implement this function.
 
+Github has enabled the RESTful APIs for [creating files] (https://docs.github.com/en/rest/repos/contents?apiVersion=2022-11-28#create-or-update-file-contents), the app will encapsulate user's code content together with the specified repository name, branch, and file path in data and send this put request using this RESTful API to create new files in the target location. However, sometimes when there's already a same file existed in the repository, this API cannot update the original file directly. For existing files, GitHub requires the current file's SHA when updating. It requires us to provide a sha attribute in the data.
+
+The Sha value is a safety measure GitHub uses to prevent unintended overwrites. Therefore, in the first step our app will try to acquire the file from Github repository, and if that succeed, our app will acquire its sha value and upload the new data containing this sha value. Our approach is: 
+First, try to get the file's current content. If it exists, we'll get its SHA.
+If the file doesn't exist, we'll create it.
+If it does exist, we'll update it with the new content.
+
+By detecting the response status code we can tell whether our API calls are successful. Finally this sharing code function has been implemented using RESTful APIs and accessing to Sha values of existing files.
 
 
 ## 🚀 Contributions
