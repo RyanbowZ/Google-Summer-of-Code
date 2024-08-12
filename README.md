@@ -51,13 +51,13 @@ Extra Features which were suggested by mentors throughout the Google Summer of C
 
 The Minimal Slash commands allow users to handle ai programmer functions using simple slash commands. Users can generate code, set personalized configuration, connect to Github, and share codes. These commands allow users to access the app's features more conveniently. 
 
-1. Generate code pieces with specific description (please set language and llm correctly first!) -> \`/ai-programmer gen code_content\`
-2. Set the language you want to use to generate code -> \`/ai-programmer set C++\`
-3. Switch to the LLM you want to use to generate code -> \`/ai-programmer llm llama3-70b\`
-4. List the available LLM options -> \`/ai-programmer list \`
-5. Use the interactive user interface to handle your operations -> \`/ai-programmer ui \`
-6. Login to Github (You should set OAuth2 settings first!) -> \`/ai-programmer login \`.
-7. Logout to Github -> \`/ai-programmer logout \`.
+1. Generate code pieces with specific description (please set language and llm correctly first!) -> `/ai-programmer gen code_content`
+2. Set the language you want to use to generate code -> `/ai-programmer set C++`
+3. Switch to the LLM you want to use to generate code -> `/ai-programmer llm llama3-70b`
+4. List the available LLM options -> `/ai-programmer list`
+5. Use the interactive user interface to handle your operations -> `/ai-programmer ui`
+6. Login to Github (You should set OAuth2 settings first!) -> `/ai-programmer login`.
+7. Logout to Github -> `/ai-programmer logout`.
 
 ### User Interface
 
@@ -69,16 +69,28 @@ The friendly user interface implemented using RC app engine's ui-kit allows inte
 
 https://github.com/user-attachments/assets/eb169616-63c1-40c0-96e0-dadc4bc05e92
 
+### LLM Configuration
 
+For the code generation tasks, we are supposed to invoke LLMs. In Rocket.Chat community, the LLM APIs are configured together in a safe.dev server provided by @devanshu.sharma . This enables the direct invoking of different LLMs via generic GPT-format LLM APIs. Thus, users can swiftly switch between different LLMs and choose the version that works smoothly with their requirements.
 
-### 🔐 GitHub OAuth
+### Prompt Engineering
 
-In the GitHub App I have implemented the Authentication mechanism using OAuth2. Here we have used the [GitHub OAuth](https://docs.github.com/en/developers/apps/building-oauth-apps/authorizing-oauth-apps) along with the [RocketChat Apps Oauth2 Client](https://developer.rocket.chat/apps-engine/adding-features/oauth2-client).     
-- The users can log in to their github accounts simply by entering the slash command : `/github login` and clicking on the `login` button.
-- As soon as the user is logged in, they receive a message and they can now use all the features which require authorized users.
+To avoid avoid improper injections and ensure the app function as expected, we should make the prompts of LLMs to be more effective. This practice is done by conducting rigorous prompt engineering. A well-designed prompt can offer the users numerous benefits, including improved output accuracy, enhanced control over model responses, reduced hallucinations, better task alignment, and increased efficiency in utilizing the model's capabilities. Effective prompt engineering also helps mitigate potential security risks, ensures consistent performance across various inputs, and allows for more nuanced and context-aware interactions with the LLM.
+
+To achieve this, we used a method called "chain of thought", which asks an LLM to generate an effective prompt for a specific task itself, and human will intefere with it to audit the prompt result and ensure its effectiveness.
+
+Our experiments show that the prompts we adopt in this ai-programmer is strong enough to sustain possible attacks or injection attempts from illegal users.
+
+### 🔐 GitHub OAuth Connections
+
+To enable users to share code into GitHub repositories, in this Ai Programmer App I have implemented the Authentication mechanism using OAuth2. To implement this feature, we have used the [GitHub OAuth](https://docs.github.com/en/developers/apps/building-oauth-apps/authorizing-oauth-apps) along with the [RocketChat Apps Oauth2 Client](https://developer.rocket.chat/apps-engine/adding-features/oauth2-client) for OAuth2 authentication. 
+
+When registering the OAuth application, the callback URL must be set to the server url of which this app is deployed on. (e.g. http://localhost:3000 for local servers). After the GitHub OAuth is successfully setup, open the settings page of Ai Programmer App and enter the correspnding GitHub App OAuth Client Id and Client Secret.
+
+- The users can then log in to their github accounts simply by entering the slash command : `/ai-programmer login` and clicking on the `login` button.
+- As soon as the user is logged in, they receive a message notifying the successful connection with Github. User can now upload their generated code to their github repositories. 
 - The users are automatically logged out after a period of time and the token is deleted. This was done to ensure the scalability of the feature in case of inactive users and to remove old OAuth tokens from the apps limited persistent storage. To achieve this we use the [RocketChat Apps Scheduler API](https://developer.rocket.chat/apps-engine/adding-features/scheduler-api).
 
-https://user-images.githubusercontent.com/70485812/189439737-78e25abc-a78b-43da-af2f-21a6c061bc38.mp4
 
 
 
@@ -121,19 +133,12 @@ https://user-images.githubusercontent.com/70485812/189439737-78e25abc-a78b-43da-
 
 ## Pushing Limits
 
-- In order to make this project a success we have pushed Rocket.Chat to the limit. To improve the collaboration and bring the GitHub conversations to Rocket.Chat we decided to add a Code Editor component to Rocket.Chat. This task was not so easy and required a lot of research.  
-- Adding any new Component to the UIKit and making it re-usable for other Rocket.Chat App developers requires us to go through a series of additions in different repositories and understanding how [fuselage](https://github.com/RocketChat/fuselage/tree/develop/packages/fuselage), [ui-kit](https://github.com/RocketChat/fuselage/tree/develop/packages/ui-kit), [fuselage-ui-kit](https://github.com/RocketChat/fuselage/tree/develop/packages/fuselage-ui-kit) and [Rocket.Chat.Apps-engine](https://github.com/RocketChat/Rocket.Chat.Apps-engine) work together to render components inside [Rocket.Chat](https://github.com/RocketChat/Rocket.Chat). 
-- The detailed documentation on how we went about adding a Code Editor to Rocket.Chat can be seen over here : [Pull Request Reviews : Integrating Code Editor with Syntax Highlighting](https://github.com/RocketChat/Apps.Github22/wiki/Pull-Request-Reviews--:-Integrating-Code-Editor-with-Syntax-Highlighting).
-- To use the GitHub App the full potential, feel free to use the version of the GitHub App which uses the upgraded version of Rocket.Chat and other packages with the CodeEditor Component, update the dependencies to use modified versions of the Rocket.Chat.Apps-engine, fuselgae, ui-kit and fuselage-ui-kit.
-   - [GitHub App with CodeEditor Component](https://github.com/samad-yar-khan/Apps.Github22/tree/demoApp).
-   - [fuselage, ui-kit and fuselage-ui-kit with Code Editor integration](https://github.com/samad-yar-khan/fuselage/tree/CodeEditorInputAce).
-   - [Rocket.Chat with intigrated Code Editor in the fuselage-ui-kit package](https://github.com/samad-yar-khan/Rocket.Chat/tree/CodeEditorComponent).
- 
-- GitHub App with the integrated CodeEditor can be used on this [hosted server](https://gh-app.rocketchat.digital/). This server uses the above-mentioned, upgraded versions of fuselage, ui-kit, Rocket.Chat.Apps-engine and Rocket.Chat.
+- In order to make this project a success we have pushed Rocket.Chat to the limit. Since Rocket.Chat app engine and server updates frequently, some of the ui-kit functions become deprecated and requires redesigin UI logis using the new APIs. To improve the user interface with the new version's app engine ui-kit, we researched on the new version ui-kit and figure out the logics behind the invoking of different ui components. This task was not so easy and required a lot of research.  
+- Designing new components on the new version ui-kit and make it more intuitive and friendly for users to interactive requires us to dive deep into different repositories and understanding how [fuselage](https://github.com/RocketChat/fuselage/tree/develop/packages/fuselage), [ui-kit](https://github.com/RocketChat/fuselage/tree/develop/packages/ui-kit), [fuselage-ui-kit](https://github.com/RocketChat/fuselage/tree/develop/packages/fuselage-ui-kit) and [Rocket.Chat.Apps-engine](https://github.com/RocketChat/Rocket.Chat.Apps-engine) work together to render components inside [Rocket.Chat](https://github.com/RocketChat/Rocket.Chat). 
 
 ## Documentation 
 
-I have documented all of the features mentioned above in the [Project Wiki](https://github.com/RocketChat/Apps.Github22/wiki). This documentation can prove useful to all future Rocket.Chat contributors working on Rocket.Chat Apps, Apps-engine, fuselage or the ui-kit. 
+I have documented all of the features mentioned above in the [Project README](https://github.com/RocketChat/Apps.RC.AI.Programmer). This documentation can prove useful to all future Rocket.Chat contributors working on Rocket.Chat Apps, Apps-engine, LLM or the ui-kit. 
 
     
 
@@ -170,11 +175,11 @@ Want to discuss about GSoC / Rocket.Chat / Open-source ? Let's connect!
 |:--------------------|:-------------------|
 | **Organization** | [Rocket.Chat](https://rocket.chat/) |
 | **Personal Page** | [ryanbowz's page](https://ryanbowz.github.io/) |
-| **Project** | [GitHub App](https://summerofcode.withgoogle.com/programs/2024/projects/ZRkQn5bb) |
-| **GitHub** | [@samad-yar-khan](https://github.com/RyanbowZ) |
-| **LinkedIn** | [samad-yar-khan](https://www.linkedin.com/in/ryanbowz/) |
+| **Project** | [Ai Programmer App](https://summerofcode.withgoogle.com/programs/2024/projects/ZRkQn5bb) |
+| **GitHub** | [@ryanbowz](https://github.com/RyanbowZ) |
+| **LinkedIn** | [ryanbowz](https://www.linkedin.com/in/ryanbowz/) |
 | **Email** | <a href="mailto:ryanbowz@outlook.com">ryanbowz@outlook.com</a> |
-| **Rocket.Chat** | [samad.khan](https://open.rocket.chat/direct/ryan.zhou) |
+| **Rocket.Chat** | [ryan.zhou](https://open.rocket.chat/direct/ryan.zhou) |
        
 </div>
 
