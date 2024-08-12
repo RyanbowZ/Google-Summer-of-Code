@@ -76,7 +76,7 @@ https://github.com/user-attachments/assets/eb169616-63c1-40c0-96e0-dadc4bc05e92
 
 For the code generation tasks, we are supposed to invoke LLMs. In Rocket.Chat community, the LLM APIs are configured together in a safe.dev server provided by @devanshu.sharma . This enables the direct invoking of different LLMs via generic GPT-format LLM APIs. Thus, users can swiftly switch between different LLMs and choose the version that works smoothly with their requirements.
 
-![image](https://github.com/user-attachments/assets/42630d11-4567-4a05-82df-a434a93667aa)
+ <img src="https://github.com/user-attachments/assets/42630d11-4567-4a05-82df-a434a93667aa" alt="LLM Options" width="50%"/>
 
 
 ### Prompt Engineering
