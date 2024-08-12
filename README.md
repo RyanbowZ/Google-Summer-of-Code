@@ -63,8 +63,9 @@ The friendly user interface implemented using RC app engine's ui-kit allows inte
 
 
 
+https://github.com/user-attachments/assets/eb169616-63c1-40c0-96e0-dadc4bc05e92
 
-https://user-images.githubusercontent.com/70485812/189435287-1ae93110-6ba2-4dbc-ab2f-4774a76cecfd.mp4
+
 
 ### 🔐 GitHub OAuth
 
