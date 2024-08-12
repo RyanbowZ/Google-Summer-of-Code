@@ -105,6 +105,8 @@ When registering the OAuth application, the callback URL must be set to the serv
 - The users can then log in to their github accounts simply by entering the slash command : `/ai-programmer login` and clicking on the `login` button.
 - As soon as the user is logged in, they receive a message notifying the successful connection with Github. User can now upload their generated code to their github repositories. 
 - The users are automatically logged out after a period of time and the token is deleted. This was done to ensure the scalability of the feature in case of inactive users and to remove old OAuth tokens from the apps limited persistent storage. To achieve this we use the [RocketChat Apps Scheduler API](https://developer.rocket.chat/apps-engine/adding-features/scheduler-api).
+  
+<img src="https://github.com/user-attachments/assets/7609f317-025c-4760-8685-9b590192bfbc" alt="OAuth Setting Example" width="70%"/>
 
 ### Sharing Code to Github
 
@@ -174,7 +176,7 @@ Since the code is generated within the channel, it is reasonable for users to sh
 
 ## Documentation 
 
-I have documented all of the features mentioned above in the [Project README](https://github.com/RocketChat/Apps.RC.AI.Programmer). This documentation can prove useful to all future Rocket.Chat contributors working on Rocket.Chat Apps, Apps-engine, LLM or the ui-kit. 
+I have documented all of the features mentioned above in the [Project README](https://github.com/RocketChat/Apps.RC.AI.Programmer). This documentation can prove useful to all future Rocket.Chat contributors working on Rocket.Chat Apps, Apps-engine, LLM, Github API, OAuth authentication, and the ui-kit. 
 
     
 
